@@ -9,18 +9,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Harmony Neutrals -->
+    <!-- Application Structure Plan: The SPA is designed as a strategic narrative flow to guide a potential partner. It starts with a high-level 'Opportunity' overview, delves into the 'Technology Deep Dive' to explain the "what" and "why," presents the 'Market Landscape' to show where it fits, outlines the 'Engagement Pathways' as a clear call to action, and provides a 'Resource Hub' for next steps. This structure prioritizes a persuasive journey over mirroring the report's academic layout, making the complex information digestible and leading the user logically from interest to action. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Performance benefits (Bandwidth, Power). Goal: Compare. Viz: Bar Chart (Chart.js). Interaction: Tooltips. Justification: Clearly shows magnitude of improvement over traditional methods.
+        - Report Info: Market Segments/Players. Goal: Organize/Compare. Viz: Bubble Chart (Chart.js). Interaction: Tooltips showing player details. Justification: Visualizes market structure and player importance effectively.
+        - Report Info: Partnership Models. Goal: Organize. Viz: Styled HTML Cards (Tailwind). Interaction: Hover effects. Justification: Presents distinct options clearly and cleanly.
+        - Report Info: Engagement Process. Goal: Organize. Viz: HTML/CSS Flowchart (Tailwind). Interaction: None needed. Justification: Simple, clear visualization of a linear process.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F8F7F4;
-            color: #434242;
+            background-color: #F8F7F4; /* Warm Neutral Background */
+            color: #434242; /* Dark Gray Text */
         }
         .nav-active {
-            color: #22A699;
+            color: #22A699; /* Accent Color */
             font-weight: 700;
         }
         .section-title {
-            color: #222222;
+            color: #222222; /* Near Black for Titles */
             font-weight: 800;
         }
         .accent-bg { background-color: #22A699; }
@@ -65,7 +74,7 @@
             color: #434242;
         }
         .flow-step {
-            border-left: 3px solid #F2BE22;
+            border-left: 3px solid #F2BE22; /* Secondary Accent */
             padding-left: 1.5rem;
             position: relative;
         }
@@ -238,10 +247,6 @@
             };
 
             const performanceCtx = document.getElementById('performanceChart').getContext('2d');
-            const existingPerformanceChart = Chart.getChart(performanceCtx);
-            if (existingPerformanceChart) {
-                existingPerformanceChart.destroy();
-            }
             const performanceChart = new Chart(performanceCtx, {
                 type: 'bar',
                 data: {
@@ -299,10 +304,6 @@
             };
             
             const marketPlayersCtx = document.getElementById('marketPlayersChart').getContext('2d');
-            const existingMarketChart = Chart.getChart(marketPlayersCtx);
-            if (existingMarketChart) {
-                existingMarketChart.destroy();
-            }
             const marketPlayersChart = new Chart(marketPlayersCtx, {
                 type: 'bubble',
                 data: {
