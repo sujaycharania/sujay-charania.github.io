@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Application: Commercialization Strategy for 3D Optical Interconnects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Harmony Neutrals -->
+    <!-- Application Structure Plan: The SPA is designed as a strategic narrative flow to guide a potential partner. It starts with a high-level 'Opportunity' overview, delves into the 'Technology Deep Dive' to explain the "what" and "why," presents the 'Market Landscape' to show where it fits, outlines the 'Engagement Pathways' as a clear call to action, and provides a 'Resource Hub' for next steps. This structure prioritizes a persuasive journey over mirroring the report's academic layout, making the complex information digestible and leading the user logically from interest to action. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Performance benefits (Bandwidth, Power). Goal: Compare. Viz: Bar Chart (Chart.js). Interaction: Tooltips. Justification: Clearly shows magnitude of improvement over traditional methods.
+        - Report Info: Market Segments/Players. Goal: Organize/Compare. Viz: Bubble Chart (Chart.js). Interaction: Tooltips showing player details. Justification: Visualizes market structure and player importance effectively.
+        - Report Info: Partnership Models. Goal: Organize. Viz: Styled HTML Cards (Tailwind). Interaction: Hover effects. Justification: Presents distinct options clearly and cleanly.
+        - Report Info: Engagement Process. Goal: Organize. Viz: HTML/CSS Flowchart (Tailwind). Interaction: None needed. Justification: Simple, clear visualization of a linear process.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F7F4; /* Warm Neutral Background */
+            color: #434242; /* Dark Gray Text */
+        }
+        .nav-active {
+            color: #22A699; /* Accent Color */
+            font-weight: 700;
+        }
+        .section-title {
+            color: #222222; /* Near Black for Titles */
+            font-weight: 800;
+        }
+        .accent-bg { background-color: #22A699; }
+        .accent-text { color: #22A699; }
+        .accent-border { border-color: #22A699; }
+        .card {
+            background-color: #FFFFFF;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #E5E5E5;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 450px;
+        }
+        @media (min-width: 768px) {
+            .chart-container { height: 400px; }
+        }
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .tab-btn.active {
+            background-color: #22A699;
+            color: white;
+        }
+        .tab-btn:not(.active) {
+            background-color: #E5E5E5;
+            color: #434242;
+        }
+        .flow-step {
+            border-left: 3px solid #F2BE22; /* Secondary Accent */
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .flow-step::before {
+            content: '';
+            position: absolute;
+            left: -0.8rem;
+            top: 0;
+            height: 1.5rem;
+            width: 1.5rem;
+            background-color: #F2BE22;
+            border-radius: 9999px;
+            border: 4px solid #F8F7F4;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav id="navbar" class="sticky top-0 bg-white/80 backdrop-blur-lg z-50 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-xl font-bold section-title">3D Optical Interconnects</div>
+                <div class="hidden md:flex space-x-8 text-lg">
+                    <a href="#opportunity" class="hover:accent-text transition-colors">Opportunity</a>
+                    <a href="#technology" class="hover:accent-text transition-colors">Technology</a>
+                    <a href="#market" class="hover:accent-text transition-colors">Market</a>
+                    <a href="#engagement" class="hover:accent-text transition-colors">Engagement</a>
+                </div>
+                <a href="#contact" class="hidden md:inline-block accent-bg text-white font-bold py-2 px-6 rounded-full hover:opacity-90 transition-opacity">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="opportunity" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold section-title mb-4">A New Dimension in Chip Technology</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-600 mb-12">This interactive application outlines the strategic commercialization plan for a patented 3D optical interconnect technology, designed to solve the critical data bottlenecks limiting the future of AI, HPC, and data centers.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="card p-8">
+                        <h3 class="text-2xl font-bold accent-text mb-2">Secure Co-Funding</h3>
+                        <p>Partner with us to share the costs of international patent applications, gaining early access and favorable terms on a foundational technology.</p>
+                    </div>
+                    <div class="card p-8">
+                        <h3 class="text-2xl font-bold accent-text mb-2">Explore Licensing</h3>
+                        <p>Gain a competitive edge by licensing our validated IP, with flexible exclusive or non-exclusive models available to suit your strategy.</p>
+                    </div>
+                    <div class="card p-8">
+                        <h3 class="text-2xl font-bold accent-text mb-2">Launch Joint R&D</h3>
+                        <p>Collaborate on targeted research to accelerate development and tailor the technology for your specific, high-value applications.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="technology" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl section-title mb-4">Technology Deep Dive: The Optical Advantage</h2>
+                    <p class="text-lg max-w-3xl mx-auto text-gray-600">Our technology overcomes the physical limits of traditional 2D electrical interconnects. By moving data with light in the third dimension, we unlock unprecedented performance, efficiency, and design flexibility.</p>
+                </div>
+
+                <div class="card p-6 md:p-8 mb-12">
+                    <h3 class="text-2xl font-bold text-center mb-6 section-title">Performance Revolution: Optical vs. Electrical</h3>
+                    <div class="chart-container">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                    <p class="mt-6 text-center text-gray-600 max-w-4xl mx-auto">This chart visualizes the order-of-magnitude improvements offered by 3D optical interconnects. The technology enables a dramatic increase in I/O density and bandwidth while slashing power consumption, directly addressing the core challenges in high-performance system design.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                    <div class="p-4">
+                        <h4 class="font-bold text-xl mb-2 accent-text">Higher Bandwidth</h4>
+                        <p>Vertical stacking enables more functionality in a smaller footprint, crucial for compute-intensive tasks.</p>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-xl mb-2 accent-text">Lower Power</h4>
+                        <p>Shorter, faster interconnects reduce power draw by 10-100x, cutting heat and operational costs.</p>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-xl mb-2 accent-text">Reduced Footprint</h4>
+                        <p>Heterogeneous integration allows for optimal, cost-effective use of different technology nodes in one package.</p>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-xl mb-2 accent-text">Enhanced Security</h4>
+                        <p>The stacked 3D structure inherently complicates reverse engineering attempts, protecting sensitive circuits.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="market" class="py-16 md:py-24">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl section-title mb-4">Market Landscape & Target Partners</h2>
+                    <p class="text-lg max-w-3xl mx-auto text-gray-600">The technology is positioned at the convergence of AI, HPC, and advanced packaging. We are targeting industry leaders who are actively investing in solutions to overcome the interconnect bottleneck.</p>
+                </div>
+
+                <div class="card p-6 md:p-8">
+                    <div class="flex flex-col md:flex-row justify-center items-center gap-4 mb-8" id="partner-filter">
+                        <button class="tab-btn active" data-filter="all">All Players</button>
+                        <button class="tab-btn" data-filter="hpc_ai">HPC/AI Hardware</button>
+                        <button class="tab-btn" data-filter="packaging">Advanced Packaging</button>
+                        <button class="tab-btn" data-filter="cloud">Cloud & Data Center</button>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="marketPlayersChart"></canvas>
+                    </div>
+                    <p class="mt-6 text-center text-gray-600 max-w-4xl mx-auto">This interactive chart maps key industry players by their primary segment and market influence (represented by bubble size). Use the filters to explore companies in specific sectors. Our technology offers a compelling value proposition to all these players, especially those in advanced packaging and HPC/AI hardware development.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="engagement" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl section-title mb-4">Engagement Pathways & Process</h2>
+                    <p class="text-lg max-w-3xl mx-auto text-gray-600">We offer a clear, structured process for exploring partnerships. Our goal is to create mutually beneficial collaborations that accelerate innovation and market adoption.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 section-title">Information Sharing Strategy</h3>
+                        <div class="space-y-8">
+                            <div class="flow-step">
+                                <h4 class="text-xl font-bold">1. Non-Confidential Disclosure (NCD)</h4>
+                                <p class="text-gray-600">Initial outreach begins with a concise pitch deck outlining the technology's value proposition and applications without revealing proprietary details. This generates interest while protecting IP.</p>
+                            </div>
+                            <div class="flow-step">
+                                <h4 class="text-xl font-bold">2. Non-Disclosure Agreement (NDA)</h4>
+                                <p class="text-gray-600">For interested parties, an NDA is executed to create a confidential relationship, enabling deeper technical discussions and the sharing of detailed, potentially patentable information.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 section-title">IP & Agreement Framework</h3>
+                         <div class="space-y-8">
+                            <div class="flow-step">
+                                <h4 class="text-xl font-bold">3. IP Ownership & Licensing</h4>
+                                <p class="text-gray-600">Our model favors single-party IP ownership by the institute to simplify commercialization, with clear and flexible licensing terms (exclusive or non-exclusive) granted to partners.</p>
+                            </div>
+                            <div class="flow-step">
+                                <h4 class="text-xl font-bold">4. Joint Development Terms</h4>
+                                <p class="text-gray-600">For joint R&D, agreements will precisely define project scope, background IP rights, and allocation of foreground IP, ensuring clarity and protecting all parties' interests.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 md:py-24 accent-bg">
+            <div class="container mx-auto px-4 text-center text-white">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Let's Define the Future of Computing</h2>
+                <p class="text-lg max-w-3xl mx-auto mb-8">This technology is a key enabler for the next generation of high-performance systems. We are seeking strategic partners to commercialize this innovation. Contact us to receive the non-confidential pitch deck and begin the conversation.</p>
+                <a href="mailto:sujay.charania@tu-dresden.de?subject=Inquiry: 3D Optical Interconnect Technology Partnership" class="bg-white accent-text font-bold py-4 px-8 rounded-full text-lg hover:bg-gray-100 transition-colors">
+                    Initiate Contact
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const commonTooltipCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) { return label.join(' '); }
+                return label;
+            };
+
+            const performanceCtx = document.getElementById('performanceChart').getContext('2d');
+            const performanceChart = new Chart(performanceCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['I/O Density (per mm²)', 'Bandwidth (Tbps)', 'Power Consumption (pJ/bit)'],
+                    datasets: [{
+                        label: '2D Electrical',
+                        data: [100, 1.6, 2.0],
+                        backgroundColor: '#434242',
+                    }, {
+                        label: '3D Optical',
+                        data: [10000, 100, 0.1],
+                        backgroundColor: '#22A699',
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            type: 'logarithmic',
+                            grid: { drawOnChartArea: false },
+                            ticks: {
+                                color: '#434242',
+                                callback: function(value, index, values) {
+                                    if ([0.1, 1, 10, 100, 1000, 10000].includes(value)) return value;
+                                }
+                            }
+                        },
+                        y: {
+                            ticks: { color: '#434242', font: { size: 14 } },
+                            grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#434242', font: { size: 14 } } },
+                        tooltip: { callbacks: { title: commonTooltipCallback } }
+                    }
+                }
+            });
+
+            const marketPlayersData = {
+                all: [
+                    { label: 'Intel', x: 1, y: 8, r: 25, type: 'hpc_ai' },
+                    { label: 'TSMC', x: 2, y: 9, r: 30, type: 'packaging' },
+                    { label: 'Broadcom', x: 1, y: 7, r: 22, type: 'hpc_ai' },
+                    { label: 'Samsung', x: 2, y: 8, r: 28, type: 'packaging' },
+                    { label: 'ASE Group', x: 2, y: 6, r: 20, type: 'packaging' },
+                    { label: 'STMicro', x: 1, y: 5, r: 15, type: 'hpc_ai' },
+                    { label: 'NVIDIA', x: 1, y: 10, r: 35, type: 'hpc_ai' },
+                    { label: 'Google', x: 3, y: 8, r: 26, type: 'cloud' },
+                    { label: 'Amazon', x: 3, y: 9, r: 29, type: 'cloud' },
+                    { label: 'Microsoft', x: 3, y: 7, r: 24, type: 'cloud' }
+                ]
+            };
+            
+            const marketPlayersCtx = document.getElementById('marketPlayersChart').getContext('2d');
+            const marketPlayersChart = new Chart(marketPlayersCtx, {
+                type: 'bubble',
+                data: {
+                    datasets: [{
+                        label: 'Industry Players',
+                        data: marketPlayersData.all.map(p => ({...p, label: p.label})),
+                        backgroundColor: '#22A699' + '99',
+                        borderColor: '#22A699',
+                        borderWidth: 2,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.raw.label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            title: { display: true, text: 'Market Influence & Innovation', color: '#434242', font: { weight: 'bold' } },
+                            ticks: { display: false },
+                        },
+                        x: {
+                            title: { display: true, text: 'Primary Market Segment', color: '#434242', font: { weight: 'bold' } },
+                            ticks: {
+                                color: '#434242',
+                                callback: function(value) {
+                                    const labels = { 1: 'HPC/AI', 2: 'Packaging', 3: 'Cloud' };
+                                    return labels[value];
+                                }
+                            },
+                            min: 0.5,
+                            max: 3.5,
+                        }
+                    }
+                }
+            });
+
+            const filterButtons = document.querySelectorAll('#partner-filter .tab-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    const filter = button.dataset.filter;
+                    let filteredData = marketPlayersData.all;
+                    if (filter !== 'all') {
+                        filteredData = marketPlayersData.all.filter(p => p.type === filter);
+                    }
+                    marketPlayersChart.data.datasets[0].data = filteredData;
+                    marketPlayersChart.update();
+                });
+            });
+            
+            const nav = document.getElementById('navbar');
+            const sections = document.querySelectorAll('main section');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 60) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                const navLinks = nav.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.classList.remove('nav-active');
+                    if(link.getAttribute('href').includes(current)) {
+                        link.classList.add('nav-active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
